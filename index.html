@@ -11,11 +11,32 @@ body {
     background: linear-gradient(to bottom, #fff7fb, #eef9ff);
     color: #444;
     text-align: center;
+    overflow-x: hidden;
+}
+
+.twinkle {
+    position: fixed;
+    font-size: 22px;
+    animation: twinkle 2s infinite alternate;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.star1 { top: 80px; left: 8%; }
+.star2 { top: 180px; right: 10%; animation-delay: 0.5s; }
+.star3 { top: 420px; left: 15%; animation-delay: 1s; }
+.star4 { top: 520px; right: 18%; animation-delay: 1.5s; }
+
+@keyframes twinkle {
+    from { transform: scale(0.8); opacity: 0.3; }
+    to { transform: scale(1.3); opacity: 1; }
 }
 
 header {
     background: #ffe1ec;
     padding: 30px 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .logo {
@@ -41,6 +62,13 @@ h1 {
     padding: 18px;
     border-radius: 22px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+}
+
+.cute-row {
+    font-size: 28px;
+    margin: 10px 0;
 }
 
 .container {
@@ -48,6 +76,8 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
     padding: 25px;
+    position: relative;
+    z-index: 2;
 }
 
 .product {
@@ -55,7 +85,6 @@ h1 {
     padding: 18px;
     border-radius: 24px;
     box-shadow: 0 5px 14px rgba(0,0,0,0.10);
-    position: relative;
 }
 
 .product img {
@@ -102,18 +131,6 @@ input, textarea {
     background: #ff8fab;
 }
 
-.sold-out {
-    opacity: 0.55;
-}
-
-.sold-label {
-    background: #777;
-    color: white;
-    padding: 10px;
-    border-radius: 20px;
-    font-weight: bold;
-}
-
 footer {
     padding: 25px;
     font-size: 14px;
@@ -123,6 +140,11 @@ footer {
 
 <body>
 
+<div class="twinkle star1">✨</div>
+<div class="twinkle star2">⭐</div>
+<div class="twinkle star3">💫</div>
+<div class="twinkle star4">✨</div>
+
 <header>
     <img src="logo.jpg" class="logo" alt="Ness Noodles Store Logo">
     <h1>Ness Noodles Store</h1>
@@ -130,10 +152,11 @@ footer {
 </header>
 
 <div class="notice">
+    <div class="cute-row">🎀 ✨ 🛍️ 💕 🌙</div>
     <h2>Handmade items made with love ✨</h2>
     <p>Each item is handmade and may only be available once.</p>
-    <p><strong>All bracelets are £7.99 + £2.99 delivery = £10.98 total.</strong></p>
     <p>Please send your order details first, then click Pay Now.</p>
+    <div class="cute-row">💖 🦇 🐱 💀 ⭐</div>
 </div>
 
 <div class="container">
@@ -163,4 +186,46 @@ footer {
         <h2>Golden Bat Bracelet 🦇</h2>
         <img src="bracelet2.jpg" alt="Golden Bat Bracelet">
         <p>Golden beaded bracelet with a cute bat charm.</p>
-        <p class="price">£7.99 + £2.99 delivery</
+        <p class="price">£7.99 + £2.99 delivery</p>
+
+        <form action="mailto:YOUR-EMAIL-HERE" method="post" enctype="text/plain">
+            <input type="hidden" name="Item" value="Golden Bat Bracelet">
+            <input type="text" name="Customer Name" placeholder="Your full name" required>
+            <input type="text" name="Address Line 1" placeholder="Address line 1" required>
+            <input type="text" name="Address Line 2" placeholder="Address line 2">
+            <input type="text" name="Postcode" placeholder="Postcode" required>
+            <textarea name="Message" placeholder="Any order notes"></textarea>
+            <button type="submit">Send Order Details 💌</button>
+        </form>
+
+        <a class="pay-button" href="https://paypal.me/VFrohloff/10.98" target="_blank">Pay Now 💕</a>
+    </div>
+
+    <div class="product">
+        <span class="badge">Only 1 left</span>
+        <h2>Witch Cat Bracelet 🐱✨</h2>
+        <img src="bracelet3.jpg" alt="Witch Cat Bracelet">
+        <p>Purple beaded bracelet with a witch cat charm.</p>
+        <p class="price">£7.99 + £2.99 delivery</p>
+
+        <form action="mailto:YOUR-EMAIL-HERE" method="post" enctype="text/plain">
+            <input type="hidden" name="Item" value="Witch Cat Bracelet">
+            <input type="text" name="Customer Name" placeholder="Your full name" required>
+            <input type="text" name="Address Line 1" placeholder="Address line 1" required>
+            <input type="text" name="Address Line 2" placeholder="Address line 2">
+            <input type="text" name="Postcode" placeholder="Postcode" required>
+            <textarea name="Message" placeholder="Any order notes"></textarea>
+            <button type="submit">Send Order Details 💌</button>
+        </form>
+
+        <a class="pay-button" href="https://paypal.me/VFrohloff/10.98" target="_blank">Pay Now 💕</a>
+    </div>
+
+</div>
+
+<footer>
+    ✨ Made with love by Ness 💖 ✨
+</footer>
+
+</body>
+</html>
