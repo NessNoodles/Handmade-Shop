@@ -35,13 +35,23 @@ body {
 header {
     background: #ffe1ec;
     padding: 30px 20px;
-    z-index: 2;
     position: relative;
+    z-index: 2;
 }
 
 .logo {
     width: 170px;
     border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 5px;
+    font-size: 34px;
+}
+
+.subtitle {
+    font-size: 16px;
 }
 
 .uk-banner {
@@ -61,6 +71,13 @@ header {
     padding: 18px;
     border-radius: 22px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+}
+
+.cute-row {
+    font-size: 28px;
+    margin: 10px 0;
 }
 
 .container {
@@ -68,6 +85,8 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
     padding: 25px;
+    position: relative;
+    z-index: 2;
 }
 
 .product {
@@ -81,27 +100,11 @@ header {
 .product img {
     width: 100%;
     border-radius: 18px;
+    transition: transform 0.3s ease;
 }
 
-/* SOLD OUT STYLE */
-.sold-out {
-    opacity: 0.6;
-}
-
-.sold-label {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #777;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-weight: bold;
-}
-
-.disabled {
-    pointer-events: none;
-    opacity: 0.6;
+.product img:hover {
+    transform: scale(1.05);
 }
 
 .badge {
@@ -110,6 +113,21 @@ header {
     border-radius: 20px;
     font-weight: bold;
     display: inline-block;
+    margin: 8px;
+}
+
+.sold-out {
+    opacity: 0.6;
+}
+
+.sold-label {
+    background: #777;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 8px;
 }
 
 .price {
@@ -121,16 +139,25 @@ header {
 input, textarea {
     width: 90%;
     padding: 10px;
+    border: 1px solid #ffc1d6;
     border-radius: 12px;
     margin: 5px;
 }
 
 .pay-button, button {
     background: #ffb6c1;
+    color: #444;
+    border: none;
     padding: 11px 22px;
     border-radius: 25px;
-    border: none;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.pay-button:hover, button:hover {
+    background: #ff8fab;
 }
 
 .checkout-note {
@@ -138,15 +165,25 @@ input, textarea {
     margin-top: 6px;
     color: #888;
 }
+
+footer {
+    padding: 25px;
+    font-size: 14px;
+}
 </style>
 </head>
 
 <body>
 
+<div class="twinkle star1">✨</div>
+<div class="twinkle star2">⭐</div>
+<div class="twinkle star3">💫</div>
+<div class="twinkle star4">✨</div>
+
 <header>
-    <img src="logo.jpg" class="logo">
+    <img src="logo.jpg" class="logo" alt="Ness Noodles Store Logo">
     <h1>Ness Noodles Store</h1>
-    <p>Cute • Quirky • Handmade Gifts 💖</p>
+    <p class="subtitle">Cute • Quirky • Handmade Gifts 💖</p>
 
     <div class="uk-banner">
         🚚 UK delivery only
@@ -154,52 +191,96 @@ input, textarea {
 </header>
 
 <div class="notice">
+    <div class="cute-row">🎀 ✨ 🛍️ 💕 🌙</div>
     <h2>Handmade items made with love ✨</h2>
+    <p>Each item is handmade and may only be available once.</p>
     <p>Please send your order details first, then click Pay Now.</p>
     <p><strong>🚚 UK delivery only</strong></p>
+    <div class="cute-row">💖 🦇 🐱 💀 ⭐</div>
 </div>
 
 <div class="container">
 
-    <!-- NORMAL ITEM -->
     <div class="product">
         <span class="badge">Only 1 left</span>
         <h2>Pink Skull Bracelet 💀</h2>
-        <img src="bracelet1.jpg">
 
-        <p class="price">£10.98</p>
+        <a href="bracelet1.jpg" target="_blank">
+            <img src="bracelet1.jpg" alt="Pink Skull Bracelet">
+        </a>
 
-        <form action="mailto:Vanessa.frohloff@gmail.com">
-            <input type="text" placeholder="Your name" required>
-            <button type="submit">Send Order 💌</button>
+        <p>Pink beaded bracelet with a spooky skull charm.</p>
+        <p class="price">£7.99 + £2.99 delivery</p>
+
+        <form action="mailto:Vanessa.frohloff@gmail.com" method="post" enctype="text/plain">
+            <input type="hidden" name="Item" value="Pink Skull Bracelet">
+            <input type="text" name="Customer Name" placeholder="Your full name" required>
+            <input type="text" name="Address Line 1" placeholder="Address line 1" required>
+            <input type="text" name="Address Line 2" placeholder="Address line 2">
+            <input type="text" name="Postcode" placeholder="Postcode" required>
+            <textarea name="Message" placeholder="Any order notes"></textarea>
+            <button type="submit">Send Order Details 💌</button>
         </form>
 
-        <a class="pay-button" href="https://paypal.me/VFrohloff/10.98">Pay Now 💕</a>
+        <a class="pay-button" href="https://paypal.me/VFrohloff/10.98" target="_blank">Pay Now 💕</a>
         <div class="checkout-note">🚚 UK delivery only</div>
     </div>
 
-    <!-- SOLD OUT ITEM -->
-    <div class="product sold-out">
-        <div class="sold-label">SOLD OUT</div>
-
+    <div class="product">
+        <span class="badge">Only 1 left</span>
         <h2>Golden Bat Bracelet 🦇</h2>
-        <img src="bracelet2.jpg">
 
-        <p class="price">£10.98</p>
+        <a href="bracelet2.jpg" target="_blank">
+            <img src="bracelet2.jpg" alt="Golden Bat Bracelet">
+        </a>
 
-        <div class="disabled">
-            <form>
-                <input type="text" placeholder="Unavailable" disabled>
-                <button disabled>Sold Out</button>
-            </form>
+        <p>Golden beaded bracelet with a cute bat charm.</p>
+        <p class="price">£7.99 + £2.99 delivery</p>
 
-            <button class="pay-button">Sold Out</button>
-        </div>
+        <form action="mailto:Vanessa.frohloff@gmail.com" method="post" enctype="text/plain">
+            <input type="hidden" name="Item" value="Golden Bat Bracelet">
+            <input type="text" name="Customer Name" placeholder="Your full name" required>
+            <input type="text" name="Address Line 1" placeholder="Address line 1" required>
+            <input type="text" name="Address Line 2" placeholder="Address line 2">
+            <input type="text" name="Postcode" placeholder="Postcode" required>
+            <textarea name="Message" placeholder="Any order notes"></textarea>
+            <button type="submit">Send Order Details 💌</button>
+        </form>
 
+        <a class="pay-button" href="https://paypal.me/VFrohloff/10.98" target="_blank">Pay Now 💕</a>
+        <div class="checkout-note">🚚 UK delivery only</div>
+    </div>
+
+    <div class="product">
+        <span class="badge">Only 1 left</span>
+        <h2>Witch Cat Bracelet 🐱✨</h2>
+
+        <a href="bracelet3.jpg" target="_blank">
+            <img src="bracelet3.jpg" alt="Witch Cat Bracelet">
+        </a>
+
+        <p>Purple beaded bracelet with a witch cat charm.</p>
+        <p class="price">£7.99 + £2.99 delivery</p>
+
+        <form action="mailto:Vanessa.frohloff@gmail.com" method="post" enctype="text/plain">
+            <input type="hidden" name="Item" value="Witch Cat Bracelet">
+            <input type="text" name="Customer Name" placeholder="Your full name" required>
+            <input type="text" name="Address Line 1" placeholder="Address line 1" required>
+            <input type="text" name="Address Line 2" placeholder="Address line 2">
+            <input type="text" name="Postcode" placeholder="Postcode" required>
+            <textarea name="Message" placeholder="Any order notes"></textarea>
+            <button type="submit">Send Order Details 💌</button>
+        </form>
+
+        <a class="pay-button" href="https://paypal.me/VFrohloff/10.98" target="_blank">Pay Now 💕</a>
         <div class="checkout-note">🚚 UK delivery only</div>
     </div>
 
 </div>
+
+<footer>
+    ✨ Made with love by Ness 💖 ✨
+</footer>
 
 </body>
 </html>
